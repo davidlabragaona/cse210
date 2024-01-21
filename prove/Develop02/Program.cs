@@ -5,7 +5,8 @@ using System.Diagnostics;
    1. Journal overwritting protection: We ask the customer to confirm if the journal exists.
    2. Empty list validation before saving.
    3. Show the number of entries saved/loaded.
-   
+   4. Skip header line while loading from a file.
+*/
 
 class Program
 {
