@@ -1,6 +1,12 @@
 using System;
 using System.Diagnostics;
 
+/* Exceeding the requirements
+   1. Journal overwritting protection: We ask the customer to confirm if the journal exists.
+   2. Empty list validation before saving.
+   3. Show the number of entries saved/loaded.
+   
+
 class Program
 {
     static void Main(string[] args)
