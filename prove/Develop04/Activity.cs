@@ -28,7 +28,8 @@ public class Activity
     }
 
     public void DisplayStartingMessage() {
-        Console.WriteLine($"Welcome to the {_name} Activity.\n{_description}");
+        Console.Clear();
+        Console.WriteLine($"Welcome to the {_name} Activity.\n\n{_description}");
     }
 
     public void DisplayEndingMessage() {
@@ -80,5 +81,9 @@ public class Activity
             Thread.Sleep(1000);
             Console.Write("\b\b  \b\b");
         }
+    }
+
+    public void DisplayMenuEntry() {
+
     }
 }

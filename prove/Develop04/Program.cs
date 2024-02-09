@@ -10,12 +10,19 @@ class Program
         BreathingActivity breathingActivity = new BreathingActivity();
         activities.Add(breathingActivity);
 
-        QuitActivity exitActivity = new QuitActivity();
-        activities.Add(exitActivity);
+        QuitActivity quitActivity = new QuitActivity();
+        activities.Add(quitActivity);
 
         bool exit = false;
+        string option = string.Empty;
         while(!exit) {
-            ShowMenuOptions(activities);
+            option = ShowMenuOptions(activities);
+            if (option == "1")
+                breathingActivity.Run();
+            if (option == "2") {
+                quitActivity.Run();
+                exit = true;
+            }
         }
         /*Activity activity = new Activity();
         Console.Clear();
