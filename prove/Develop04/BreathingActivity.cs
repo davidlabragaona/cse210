@@ -8,6 +8,7 @@ public class BreathingActivity : Activity
     }
 
     public void Run() {
+        _actCount++;
         string prompt = string.Empty;
 
         this.DisplayStartingMessage();
@@ -29,6 +30,10 @@ public class BreathingActivity : Activity
         }
         this.DisplayEndingMessage();
         ShowSpinner(5);
+
+        using (StreamWriter outputFile = new StreamWriter(Program._logFileName)) {
+            outputFile.WriteLine($"{GetLogEntry()}");
+        }
     }
 
 }

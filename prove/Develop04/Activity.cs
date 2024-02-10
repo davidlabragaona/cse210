@@ -6,6 +6,9 @@ public class Activity
     private string _description;
     private int _duration;
 
+    protected int _actCount;
+    protected int _actTotalDuration;
+
     private string _menuEntry;
 
     public Activity (string name, string description, string menuEntry) {
@@ -68,7 +71,7 @@ public class Activity
         while (DateTime.Now < end) {
             string s = spinner[i];
             Console.Write(s);
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Write("\b \b");
             i++;
             if (i == spinner.Count)
@@ -96,5 +99,10 @@ public class Activity
 
     public string DisplayMenuEntry() {
         return _menuEntry;
+    }
+
+    public string GetLogEntry() {
+        DateTime dateTime = DateTime.Now;
+        return $"[{dateTime:yyyy-MM-dd HH:mm}]: activity: {GetName()} - duration: {GetDuration()} - repetition: {_actCount}";
     }
 }

@@ -3,13 +3,28 @@ using System.Diagnostics;
 using System.Reflection.Metadata;
 using System.Text;
 
+// Exceeding requirements
+// 1. Quit Activity
+// 2. Save Log with duration and repetition
+// 3. Spinner and Coundown with colors
+// 4. GetRandomQuestions and Prompts without repeating
+
 class Program
 {
+    public static string _logFileName = "activity.log";
     static void Main(string[] args)
     {
         List<Activity> activities = new List<Activity>();
+
         BreathingActivity breathingActivity = new BreathingActivity();
         activities.Add(breathingActivity);
+
+        ReflectingActivity reflectingActivity = new ReflectingActivity();
+        activities.Add(reflectingActivity);
+
+        ListingActivity listingActivity = new ListingActivity();
+        activities.Add(listingActivity);
+
         QuitActivity quitActivity = new QuitActivity();
         activities.Add(quitActivity);
 
@@ -19,7 +34,12 @@ class Program
             option = ShowMenuOptions(activities);
             if (option == "1")
                 breathingActivity.Run();
-            if (option == "2") {
+            if (option == "2")
+                reflectingActivity.Run();
+            if (option == "3")
+                listingActivity.Run();    
+            if (option == "4") {
+                quitActivity.SaveLog(activities);
                 quitActivity.Run();
                 exit = true;
             }
