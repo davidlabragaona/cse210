@@ -6,9 +6,12 @@ public class Activity
     private string _description;
     private int _duration;
 
-    public Activity (string name, string description) {
+    private string _menuEntry;
+
+    public Activity (string name, string description, string menuEntry) {
         _name = name;
         _description = description;
+        _menuEntry = menuEntry;
     }
 
     public string GetName() {
@@ -27,13 +30,21 @@ public class Activity
         _duration = seconds;
     }
 
+    public int GetDuration() {
+        return _duration;
+    }
+
     public void DisplayStartingMessage() {
         Console.Clear();
-        Console.WriteLine($"Welcome to the {_name} Activity.\n\n{_description}");
+        Console.WriteLine($"Welcome to the {GetName()} Activity.\n\n{GetDescription()}\n");
+        Console.Write($"How long, in seconds, would you like for your session? ");
     }
 
     public void DisplayEndingMessage() {
-        Console.WriteLine($"Well done!!\n\n You have completed another {_duration} of the {_name} Activity.");
+        Console.WriteLine($"Well done!!");
+        ShowSpinner(3);
+        Console.WriteLine();
+        Console.WriteLine($"You have completed another {GetDuration()} seconds of the {GetName()} Activity.");
     }
 
     public void ShowSpinner (int seconds) {
@@ -63,7 +74,6 @@ public class Activity
             if (i == spinner.Count)
                 i = 0;
         }
-
         Console.ForegroundColor = color;
     }
 
@@ -81,9 +91,10 @@ public class Activity
             Thread.Sleep(1000);
             Console.Write("\b\b  \b\b");
         }
+        Console.ForegroundColor = color;
     }
 
-    public void DisplayMenuEntry() {
-
+    public string DisplayMenuEntry() {
+        return _menuEntry;
     }
 }

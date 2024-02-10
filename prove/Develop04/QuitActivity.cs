@@ -1,6 +1,8 @@
 public class QuitActivity : Activity
 {
-    public QuitActivity() : base ("Quit", "") {
+    public QuitActivity() : base ("Quit",
+    "",
+    "Quit") {
 
     }
 

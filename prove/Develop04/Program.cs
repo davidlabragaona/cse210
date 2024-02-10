@@ -1,15 +1,15 @@
 using System;
 using System.Diagnostics;
+using System.Reflection.Metadata;
+using System.Text;
 
 class Program
 {
     static void Main(string[] args)
     {
         List<Activity> activities = new List<Activity>();
-
         BreathingActivity breathingActivity = new BreathingActivity();
         activities.Add(breathingActivity);
-
         QuitActivity quitActivity = new QuitActivity();
         activities.Add(quitActivity);
 
@@ -24,25 +24,18 @@ class Program
                 exit = true;
             }
         }
-        /*Activity activity = new Activity();
-        Console.Clear();
-        activity.ShowSpinner(10);
-        activity.ShowCountDown(10);*/
     }
 
     static string ShowMenuOptions(List<Activity> activities) {
-        string response = string.Empty;
-        string menuOption = string.Empty;
+        int i = 0;
+        string option = string.Empty;
+        Console.Clear();
         Console.WriteLine("Menu Options:");
-        for (int i = 0; i < activities.Count; i++) {
-            if (activities[i].GetName().ToLower().Contains("quit"))
-                menuOption = $"\t{i + 1}. {activities[i].GetName()}";
-            else
-                menuOption = $"\t{i + 1}. Start {activities[i].GetName()} activity";
-            Console.WriteLine(menuOption);
+        foreach (Activity activity in activities) {
+            Console.WriteLine($"\t{++i}. {activity.DisplayMenuEntry()}");
         }
         Console.Write("Select a choice from the menu: ");
-        response = Console.ReadLine();
-        return response;
+        option = Console.ReadLine().Trim();
+        return option;
     }
 }
