@@ -1,6 +1,4 @@
 using System;
-using System.Diagnostics;
-using System.Reflection.Metadata;
 using System.Text;
 
 // Exceeding requirements
@@ -39,8 +37,8 @@ class Program
             if (option == "3")
                 listingActivity.Run();    
             if (option == "4") {
-                quitActivity.SaveLog(activities);
                 quitActivity.Run();
+                quitActivity.SaveLog(activities);
                 exit = true;
             }
         }

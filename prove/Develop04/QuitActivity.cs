@@ -7,14 +7,14 @@ public class QuitActivity : Activity
     }
 
     public void Run() {
-        Console.WriteLine("Good bye!");
+        _actCount++;
         SetDuration(1);
+        Console.WriteLine("Good bye!");
     }
 
     public void SaveLog(List<Activity> activities) {
-        _actCount++;
-        using (StreamWriter outputFile = new StreamWriter(Program._logFileName)) {
-            //We write the header line
+        using (StreamWriter outputFile = new StreamWriter(Program._logFileName, true)) {
+            
             foreach (Activity activity in activities) {
                 if (activity.GetDuration() > 0)
                     outputFile.WriteLine($"{activity.GetLogEntry()}");
