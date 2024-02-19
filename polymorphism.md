@@ -49,7 +49,7 @@ public class BeverageItem : RefrigeratorItem
 {
     private float _volume;
     public BeverageItem(string name, float volume) : base (name) {
-        _volume = volume_;
+        _volume = volume;
     }
 
     public override void Display() {
