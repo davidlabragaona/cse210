@@ -10,9 +10,13 @@ public abstract class Activity
 
     public virtual string GetSummary()
     {
-        return $"{_date} {GetType().Name} ({_duration} min): " +
+        return $"> {_date.ToShortDateString()} {GetType().Name} ({GetDuration()} min): " +
                $"Distance {GetDistance():F2} km, Speed: {GetSpeed():F2} kph, " +
                $"Pace: {GetPace():F2} min per km";
+    }
+
+    public int GetDuration() {
+        return _duration;
     }
 
     public abstract float GetDistance();
