@@ -9,17 +9,17 @@ public class Running : Activity
 
     public override float GetDistance()
     {
-        throw new NotImplementedException();
+        return _distance;
     }
 
     public override float GetSpeed()
     {
-        throw new NotImplementedException();
+        return (_distance / GetDuration()) * 60;
     }
 
     public override float GetPace()
     {
-        throw new NotImplementedException();
+        return GetDuration() / _distance;
     }
 
 }

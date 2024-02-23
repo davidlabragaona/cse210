@@ -6,12 +6,14 @@ public abstract class Event
     private Address _address;
 
     public string GetStandardDetails() {
-        return "";
+        return $"{_title}, {_description}, {_dateTime.ToShortDateString()}, {_address.GetAddressString()}";
     }
 
     public abstract string GetFullDetails();
 
-    public abstract string GetShortDescription();
+    public string GetShortDescription() {
+        return $"{GetType().Name}: {_title} - {_dateTime.ToShortDateString()}";
+    }
 
     public Event(string title, string description, DateTime dateTime, Address address) {
         _title = title;

@@ -8,16 +8,16 @@ public class Swimming : Activity
 
     public override float GetDistance()
     {
-        throw new NotImplementedException();
+        return _laps * 50 / 1000;
     }
 
     public override float GetSpeed()
     {
-        throw new NotImplementedException();
+        return GetDistance() / GetDuration() * 60;
     }
 
     public override float GetPace()
     {
-        throw new NotImplementedException();
+        return 60 / GetSpeed();
     }
 }

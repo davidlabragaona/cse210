@@ -8,12 +8,6 @@ public class Outdoor : Event
     }
     public override string GetFullDetails()
     {
-        throw new NotImplementedException();
+        return $"{GetStandardDetails()}\nWeather forecast: {_forecast}";
     }
-
-    public override string GetShortDescription()
-    {
-        throw new NotImplementedException();
-    }
-
 }

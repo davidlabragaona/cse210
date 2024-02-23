@@ -5,12 +5,7 @@ public class Lecture : Event
     private int _capacity;
     public override string GetFullDetails()
     {
-        throw new NotImplementedException();
-    }
-
-    public override string GetShortDescription()
-    {
-        throw new NotImplementedException();
+        return $"{GetStandardDetails()}\nSpeaker: {_speaker} - Capacity: {_capacity}";
     }
 
     public Lecture(string title, string description, DateTime dateTime, Address address, string speaker, int capacity) :

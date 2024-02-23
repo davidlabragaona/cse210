@@ -8,17 +8,17 @@ public class Cycling : Activity {
 
     public override float GetDistance()
     {
-        throw new NotImplementedException();
+        return _speed * GetDuration() / 60;
     }
 
     public override float GetSpeed()
     {
-        throw new NotImplementedException();
+        return _speed;
     }
 
     public override float GetPace()
     {
-        throw new NotImplementedException();
+        return 60 / GetSpeed();
     }
 
 }

@@ -9,11 +9,6 @@ public class Reception : Event
 
     public override string GetFullDetails()
     {
-        throw new NotImplementedException();
-    }
-
-    public override string GetShortDescription()
-    {
-        throw new NotImplementedException();
+        return $"{GetStandardDetails()}\nRSVP: {_rsvp}";
     }
 }
