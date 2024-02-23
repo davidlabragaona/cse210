@@ -13,7 +13,9 @@ public class Address
     }
 
     public bool IsInUSA() {
-        return true;
+        if (_country.ToLower() == "usa" || _country.ToLower() == "us" || _country.ToLower() == "united states of america")
+            return true;
+        return false;
     }
 
     public string GetAddressString() {

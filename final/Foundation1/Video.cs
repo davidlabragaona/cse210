@@ -16,8 +16,27 @@ public class Video
         return _comments.Count;
     }
 
-    public void AddComment(Author author, string text) {
+    public void ShowVideoData() {
+        Console.WriteLine($"{_title} ({GetDuration()})");
+        Console.WriteLine($"{_author.GetAuthorString()} - {GetCommentsCount()} comments:\n");
+        foreach (Comment comment in _comments) {
+            Console.WriteLine($"{comment.GetCommentString()}");
+        }
+    }
 
+    public string GetDuration() {
+        int hours = _length / 3600;
+        int remainder = _length % 3600;
+        int minutes = remainder / 60;
+        int seconds = remainder % 60;
+
+        return $"{hours:00}:{minutes:00}:{seconds:00}";
+
+    }
+
+    public void AddComment(Author author, string text) {
+        Comment comment = new Comment(author, text);
+        _comments.Add(comment);
     }
 
 }

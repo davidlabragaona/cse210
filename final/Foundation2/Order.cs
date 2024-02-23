@@ -5,6 +5,10 @@ public class Order
     private List<Product> _products = new List<Product>();
     private Customer _customer;
 
+    public Order(Customer customer) {
+        _customer = customer;
+    }
+
     public float GetTotalCost() {
         float total = 0.0f;
         foreach (Product product in _products) {
@@ -22,7 +26,7 @@ public class Order
     public string GetPackingLabel() {
         StringBuilder stringBuilder = new StringBuilder();
         foreach (Product product in _products) {
-            stringBuilder.AppendLine($"{product.GetName()}({product.GetProductID()})");
+            stringBuilder.AppendLine($"{product.GetName()} ({product.GetProductID()})");
         }
         return stringBuilder.ToString();
     }
@@ -30,5 +34,9 @@ public class Order
     public string GetShippingLabel() {
         return $"{_customer.GetName()}\n{_customer.GetAddress().GetAddressString()}";
 
+    }
+
+    public void AddProduct(Product product) {
+        _products.Add(product);
     }
 }

@@ -21,7 +21,7 @@ public class Comment
     }
 
     public string GetCommentString() {
-        return $"{_creationDate} - {_author.GetAuthorString()}: {_text}";
+        return $"\t{_author.GetAuthorString()} ({_creationDate})\n\t{_text}\n";
     }
 
 }
